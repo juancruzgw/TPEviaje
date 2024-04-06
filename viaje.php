@@ -17,10 +17,11 @@ class Viaje {
 
     public function __construct($c,$d,$cantMax,$pasajero,$responsable)   {
         $this->codigo = $c;
-        $this->destino =$d;
-        $this->cantMax =$cantMax;
+        $this->destino = $d;
+        $this->cantMax = $cantMax;
         $this->objPasajeros = $pasajero;
         $this->objResponsableV = $responsable;
     }
+
 
 }
