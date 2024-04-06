@@ -7,4 +7,20 @@ Volver a implementar las operaciones que permiten modificar el nombre, apellido 
 
 Nota: Recuerden que deben enviar el link a la resolución en su repositorio en GitHub*/
 
-echo "cambio";
+class Viaje {
+
+    private $codigo;
+    private $destino;
+    private $cantMax;
+    private $objPasajeros;
+    private $objResponsableV;
+
+    public function __construct($c,$d,$cantMax,$pasajero,$responsable)   {
+        $this->codigo = $c;
+        $this->destino =$d;
+        $this->cantMax =$cantMax;
+        $this->objPasajeros = $pasajero;
+        $this->objResponsableV = $responsable;
+    }
+
+}
