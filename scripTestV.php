@@ -200,10 +200,10 @@ return $coleccionPasajeros;
 
     switch ($opcion){
 
-    case 1:     echo $objViaje->verPasajeros(); //FUNCA
+    case 1:     echo $objViaje->verPasajeros(); //
      break;
 
-    case 2:     modificaViaje($objViaje); //FUNCA
+    case 2:     modificaViaje($objViaje); //
     break;
 
     case 3:     $objViaje->agregaPasajero(); //NO anda todavia
@@ -262,5 +262,5 @@ switch ($eligio){
 }
 }
 
-agregarPasajeros($objViaje,$coleccionPasajeros);
+//agregarPasajeros($objViaje,$coleccionPasajeros);
 //modificaViaje ($objViaje);
