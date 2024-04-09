@@ -3,15 +3,14 @@ class Persona {
     
     private $nombre;
     private $apellido;
-    private $tipo;
-    private $numDni;
-
-    public function __construct($nom, $ape, $tip, $nDni)    {
+    private $dni;
+    private $tel;
+    public function __construct($nom, $ape, $dni, $tel)    {
         
         $this->nombre = $nom;
         $this->apellido = $ape;
-        $this->tipo = $tip;
-        $this->numDni = $nDni;
+        $this->dni = $dni;
+        $this->tel = $tel;
     }
     //getters
     public function getNombre (){
@@ -20,12 +19,13 @@ class Persona {
     public function getApellido (){
         return $this->apellido;
     }
-    public function getTipo (){
-        return $this->tipo;
+    public function getDni (){
+        return $this->dni;
     }
-    public function getnumDni (){
-        return $this->numDni;
+    public function getTel (){
+        return $this->tel;
     }
+
     //setter
     public function setNombre ($nombre) {
         $this->nombre = $nombre;
@@ -33,16 +33,16 @@ class Persona {
     public function setapellido ($apellido) {
         $this->apellido = $apellido;
     }
-    public function setTipo ($tipo) {
-        $this->tipo = $tipo;
+    public function setDni ($dni) {
+        $this->dni = $dni;
     }
-    public function setnumDni ($numDni) {
-        $this->numDni = $numDni;
+    public function setTel ($tel) {
+        $this->tel = $tel;
     }
 
     public function __toString() {
         return  "NOMBRE: ".$this->getNombre()."\n". "APELLIDO: " . $this->getApellido() . "\n"
-        . "Tipo de DNI: ". $this->getTipo() . "\n" . "DNI: ". $this->getnumDni() . "\n";
+        . "DNI: ". $this->getDni() . "\n" . "Telefono: ". $this->getTel();
     }
 
 

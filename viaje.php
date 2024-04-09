@@ -7,6 +7,7 @@ Volver a implementar las operaciones que permiten modificar el nombre, apellido 
 
 Nota: Recuerden que deben enviar el link a la resolución en su repositorio en GitHub*/
 
+
 class Viaje {
 
     private $codigo;
@@ -15,13 +16,136 @@ class Viaje {
     private $objPasajeros;
     private $objResponsableV;
 
-    public function __construct($c,$d,$cantMax,$pasajero,$responsable)   {
+    public function __construct($c,$d,$cantMax, $responsable, $pasajero)   {
         $this->codigo = $c;
         $this->destino = $d;
-        $this->cantMax = $cantMax;
-        $this->objPasajeros = $pasajero;
+        $this->cantMax = $cantMax;  
         $this->objResponsableV = $responsable;
+        $this->objPasajeros = $pasajero;
     }
+    //GETTERS
+    public function getCodigo (){
+        return $this->codigo;
+    }
+    public function getDestino (){
+        return $this->destino;
+    }
+    public function getCantMax (){
+        return $this->cantMax;
+    }
+    public function getObjPasajeros (){
+        return $this->objPasajeros;
+    }
+    public function getObjResponsableV (){
+        return $this->objResponsableV;
+    }
+    //SETTERS
+    public function setCodigo($c){
+        $this->codigo = $c;
+    }
+    public function setDestino ($c){
+        $this->destino = $c;
+    }
+    public function setCantMax ($c){
+        $this->cantMax = $c;
+    }
+    public function setObjPasajeros ($c){
+        $this->objPasajeros = $c;
+    }
+    public function setObjResponsableV($c){
+        $this->objResponsableV = $c;
+    }
+    // esta function accede al arreglo donde estan los viajeros
+    // luego recorre todos los elementos (objetos)
+    // $arrayPasajeros le asigno el objeto con el metodo de acceso 
+    public function verPasajeros (){
+        
+        if ($this->getObjPasajeros()!= null) {
+
+            $arrayPasajeros = $this->getObjPasajeros();
+            $Persona = "";
+
+            foreach($arrayPasajeros as $pasajero){
+                
+                $Persona .= $pasajero . "\n";
+                $Persona .= "---------------\n";
+                
+            }  
+        }
+        return $Persona;
+    }
+
+    /*public function colPersonasAstring ($coleccionPasajeros){
+        $persona = "";
+
+        foreach ($coleccionPasajeros as $pasajero){
+            echo $pasajero ."\n";
+        }
+        return $pasajero;
+    }*/
+
+    public function __toString() {
+        $cadena = "Codigo de viaje: ". $this->getCodigo() . "\n Destino: ". $this->getDestino(). "\n Capacidad maxima de pasajeros: ". $this->getCantMax(). "\n"."--------------------------------------------------\n" .$this->getObjResponsableV(). "\n";
+       $cadena .= $this->verPasajeros();  
+        return $cadena;
+    }
+
+    public function buscaPasajero ($dniBuscado){ 
+
+        $arregloPasajeros = $this->getObjPasajeros();
+        $encontrado = false;
+        
+        foreach ($arregloPasajeros as $pasajero){
+
+            if ($pasajero->getDni() === $dniBuscado){
+            
+                $encontrado = true;
+                
+             }
+            }
+        return $encontrado;
+    }
+
+    public function mostrarViaje(){
+        return 
+       "Su destino es: ".$this->getDestino(). "\n ".
+       "Codigo: ".$this->getCodigo(). " \n ".
+       "Cantidad maxima de pasajeros: ". $this->getCantMax() ."\n";
+    }
+      
+// TERMINAR...
+   
+
+
+    //METODOS DE RESPONSABLE V.
+    public function muestraResponsable (){
+       return  $this->getObjResponsableV();
+    }
+    //NOMBRE
+    public function modificaNombreResponsable ($nuevoNombre){
+        $responsable = $this->getObjResponsableV();
+        return $responsable->setNombre($nuevoNombre);
+    }
+    // Num de empleado
+    public function modificaNumResponsable ($nuevoNum){
+        $responsable = $this->getObjResponsableV();
+        return $responsable->setNumEmpleado($nuevoNum);
+    }
+    //Licencia
+    public function modificaNumLicencia ($nuevoNumLicencia){
+        $responsable = $this->getObjResponsableV();
+        return $responsable->setNumLicencia($nuevoNumLicencia);
+    }
+    // Apellido
+    public function modificaApellido ($nuevoApellido){
+        $responsable = $this->getObjResponsableV();
+        return $responsable->setApellido($nuevoApellido);
+    }
+    
+
+
+
+
 
 
 }
